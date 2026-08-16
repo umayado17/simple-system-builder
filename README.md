@@ -4,6 +4,8 @@ A ChatGPT skill for building complete systems from the web UI alone — Chat as 
 
 English | [日本語](READMEjp.md)
 
+**解説記事:** [ChatGPTとGitHubで、Web UIだけでシステムを作るためのSkill](https://note.com/norito_hiraoka/n/n50d293161d97)
+
 ## What this is
 
 A skill for going from requirements to design, implementation, testing, CI, and deployment without opening an IDE or a terminal — without ever leaving the ChatGPT chat screen.
