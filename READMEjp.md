@@ -4,6 +4,8 @@ ChatGPTのWeb-UIだけでシステム開発を完結させるためのSkill — 
 
 [English](README.md) | 日本語
 
+**解説記事:** [ChatGPTとGitHubで、Web UIだけでシステムを作るためのSkill](https://note.com/norito_hiraoka/n/n50d293161d97)
+
 ## これは何か
 
 IDEを開かず、ターミナルも開かず、ChatGPTのChat画面から出ないまま、要求整理から設計・実装・テスト・CI・デプロイまで進めるためのSkillです。
