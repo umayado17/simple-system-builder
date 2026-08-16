@@ -2,6 +2,8 @@ name: Release skill
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
   workflow_dispatch:
@@ -11,6 +13,10 @@ permissions:
 
 jobs:
   release:
+    if: >-
+      startsWith(github.ref, 'refs/tags/') ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.ref == 'refs/heads/main' && github.event.head_commit.message == 'release-bootstrap: v0.1.0')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -31,7 +37,7 @@ jobs:
           path: dist/skill.zip
           if-no-files-found: error
 
-      - name: Publish GitHub Release
+      - name: Publish tagged GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ github.token }}
@@ -41,3 +47,14 @@ jobs:
             --verify-tag \
             --generate-notes \
             --title "${GITHUB_REF_NAME}"
+
+      - name: Bootstrap v0.1.0 Release
+        if: github.ref == 'refs/heads/main' && github.event.head_commit.message == 'release-bootstrap: v0.1.0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v0.1.0" \
+            dist/skill.zip \
+            --target "${GITHUB_SHA}" \
+            --generate-notes \
+            --title "v0.1.0"
