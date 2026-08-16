@@ -13,10 +13,6 @@ permissions:
 
 jobs:
   release:
-    if: >-
-      startsWith(github.ref, 'refs/tags/') ||
-      github.event_name == 'workflow_dispatch' ||
-      (github.ref == 'refs/heads/main' && github.event.head_commit.message == 'release-bootstrap: v0.1.0')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -49,7 +45,7 @@ jobs:
             --title "${GITHUB_REF_NAME}"
 
       - name: Bootstrap v0.1.0 Release
-        if: github.ref == 'refs/heads/main' && github.event.head_commit.message == 'release-bootstrap: v0.1.0'
+        if: github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[release v0.1.0]')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
