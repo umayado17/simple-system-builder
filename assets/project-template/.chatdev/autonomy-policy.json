@@ -1,0 +1,26 @@
+{
+  "default_mode": "auto",
+  "collaborate": [
+    "data_and_ux_baseline",
+    "field_report_meaning_and_layout",
+    "computer_use_allowed_behavior_and_manual_fallback",
+    "infrastructure_and_permission_baseline"
+  ],
+  "gate": [
+    "purpose_or_major_requirement_change",
+    "privilege_or_public_exposure_change",
+    "new_paid_service_or_material_cost",
+    "destructive_production_data_change",
+    "production_secret_or_sensitive_data_access"
+  ],
+  "auto": [
+    "detailed_design",
+    "implementation",
+    "tests",
+    "documentation",
+    "minimal_ci",
+    "local_or_staging_deploy",
+    "debugging_and_retry",
+    "refactoring_within_approved_design"
+  ]
+}
