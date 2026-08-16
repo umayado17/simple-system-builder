@@ -1,0 +1,12 @@
+interface:
+  display_name: 最小十分システム開発
+  short_description: Chatからシンプルな設計・実装・GitHub運用まで進める
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
